@@ -114,7 +114,9 @@ Optional Variables:
 */
 {
   graphitePort: 2003
-, graphiteHost: "localhost"
+, graphiteHost: "127.0.0.1"
 , port: 8125
+, dumpMessages: true
+, debug: true
 , backends: [ "./backends/graphite" ]
 }

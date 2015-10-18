@@ -17,12 +17,20 @@
     end
 end
 
+
+#
+# Serial port config
+#
 cookbook_file '/etc/minicom/minirc.dfl' do
 	owner 'root'
 	mode '644'
 	action :create
 end
 
+
+#
+# Graphite and conbon config
+#
 cookbook_file '/etc/default/graphite-carbon' do
 	owner 'root'
 	mode '0644'
@@ -39,6 +47,11 @@ cookbook_file '/etc/carbon/storage-schemas.conf' do
 	owner 'root'
 	mode '0644'
 	action :create
+end
+
+cookbook_file '/etc/carbon/storage-aggregation.conf' do
+	owner 'root'
+	mode '0644'
 end
 
 cookbook_file '/var/lib/graphite/create-db.sql' do
@@ -93,6 +106,11 @@ link '/etc/apache2/sites-enabled/000-default.conf' do
 	action :delete
 end
 
+
+
+#
+# Restart services
+#
 service 'carbon-cache' do
 	action [ :enable, :restart ]
 end
@@ -101,11 +119,18 @@ service 'apache2' do
 	action [ :enable, :restart ]
 end
 
+
+#
+# Development environment
+#
 execute 'python-virtualenv-config' do
   command 'pip install virtualenv statsd'
   action :run
 end
 
+#
+# StatsD confgiration
+#
 directory '/opt/statsd/src' do
 	recursive true
 	action :create
@@ -116,3 +141,16 @@ git '/opt/statsd/src' do
   revision 'master'
   action :sync
 end
+
+directory '/etc/statsd' do
+	recursive :true
+	action :create
+end
+
+cookbook_file '/etc/statsd/statsdConfig.js' do
+	owner 'root'
+	mode '0644'
+end
+
+
+
