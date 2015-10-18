@@ -9,10 +9,18 @@
 # built from this repo
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-use-graphite-on-an-ubuntu-14-04-server
 #
-%w{graphite-web graphite-carbon apache2 libapache2-mod-wsgi postgresql libpq-dev python-psycopg2 python-pip}.each do |pkg|
+# Note: linux-image-extra-virtual is only required in the vagrant instance
+#       handle this better in the future
+%w{graphite-web graphite-carbon apache2 libapache2-mod-wsgi postgresql libpq-dev python-psycopg2 python-pip linux-image-extra-virtual minicom}.each do |pkg|
     package pkg do
         action :install
     end
+end
+
+cookbook_file '/etc/minicom/minirc.dfl' do
+	owner 'root'
+	mode '644'
+	action :create
 end
 
 cookbook_file '/etc/default/graphite-carbon' do
