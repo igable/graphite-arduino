@@ -11,7 +11,7 @@
 #
 # Note: linux-image-extra-virtual is only required in the vagrant instance
 #       handle this better in the future
-%w{graphite-web graphite-carbon apache2 libapache2-mod-wsgi postgresql libpq-dev python-psycopg2 python-pip linux-image-extra-virtual minicom}.each do |pkg|
+%w{graphite-web graphite-carbon apache2 libapache2-mod-wsgi postgresql libpq-dev python-psycopg2 python-pip linux-image-extra-virtual minicom nodejs git}.each do |pkg|
     package pkg do
         action :install
     end
@@ -104,4 +104,15 @@ end
 execute 'python-virtualenv-config' do
   command 'pip install virtualenv statsd'
   action :run
+end
+
+directory '/opt/statsd/src' do
+	recursive true
+	action :create
+end
+
+git '/opt/statsd/src' do
+  repository 'https://github.com/etsy/statsd.git'
+  revision 'master'
+  action :sync
 end
