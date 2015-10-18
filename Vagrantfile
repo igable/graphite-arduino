@@ -77,5 +77,6 @@ Vagrant.configure(2) do |config|
     chef.version = "12.3.0"
     chef.add_recipe "fimafeng"
   end
-
+  #random comment
+  
 end
