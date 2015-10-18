@@ -102,6 +102,6 @@ service 'apache2' do
 end
 
 execute 'python-virtualenv-config' do
-  command 'pip install virtualenv'
+  command 'user pip install virtualenv statsd'
   action :run
 end
