@@ -9,7 +9,7 @@
 # built from this repo
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-use-graphite-on-an-ubuntu-14-04-server
 #
-%w{graphite-web graphite-carbon apache2 libapache2-mod-wsgi postgresql libpq-dev python-psycopg2}.each do |pkg|
+%w{graphite-web graphite-carbon apache2 libapache2-mod-wsgi postgresql libpq-dev python-psycopg2 python-pip}.each do |pkg|
     package pkg do
         action :install
     end
@@ -93,5 +93,7 @@ service 'apache2' do
 	action [ :enable, :restart ]
 end
 
-
-
+execute 'python-virtualenv-config' do
+  command 'pip install virtualenv'
+  action :run
+end
