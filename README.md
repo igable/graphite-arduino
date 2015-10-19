@@ -13,10 +13,6 @@ Getting Started
     cd fimafeng-vagrant
     vagrant up
 
-The main recipe that controls the execution of this chef provisioning is:
-
-[cookbooks/fimafeng/recipes/default.rb](cookbooks/fimafeng/recipes/default.rb)
-
 Progress that is made so far is:
 
 - configure graphite from from ubuntu packages
