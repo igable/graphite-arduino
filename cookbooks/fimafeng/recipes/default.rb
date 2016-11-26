@@ -143,7 +143,7 @@ git '/opt/statsd/src' do
 end
 
 directory '/etc/statsd' do
-	recursive :true
+	recursive true
 	action :create
 end
 
