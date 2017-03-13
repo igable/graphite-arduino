@@ -1,16 +1,15 @@
-Fimafeng Vagrant Development environment
-========================================
+Graphite Arduino Vagrant Development environment
+================================================
 
-This repository contains the vagrant setup for the Fimafeng development environment. Python code
-for the fimafeng code base is in 
-[https://github.com/roguegeer/fimafeng](https://github.com/roguegeer/fimafeng).
+This repository contains the [Vagrant](https://www.vagrantup.com/) configuration for graphite and 
+configuration for connecting an arduino development board via USB. 
 
 
 Getting Started
 ---------------
 
-    git clone git@github.com:roguegeer/fimafeng-vagrant.git
-    cd fimafeng-vagrant
+    git clone git@github.com:igable/graphite-arduino.git
+    cd graphite-arduino
     vagrant up
 
 Progress that is made so far is:
@@ -50,7 +49,7 @@ The [Vagrantfile](Vagrantfile) defines how vagrant is configured for this vagran
 
 The main recipe that controls the execution of this chef provisioning is:
 
-[cookbooks/fimafeng/recipes/default.rb](cookbooks/fimafeng/recipes/default.rb)
+[cookbooks/graphite-arduino/recipes/default.rb](cookbooks/graphite-arduino/recipes/default.rb)
 
 Once a change has been made to the recipes you can start a chef run by doing:
 

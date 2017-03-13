@@ -2,11 +2,9 @@
 # Cookbook Name:: graphite-arduino
 # Recipe:: default
 #
-# Copyright 2015, YOUR_COMPANY_NAME
+# Copyright 2015, Ian Gable
 #
-# All rights reserved - Do Not Redistribute
-#
-# built from this repo
+# built from this document
 # https://www.digitalocean.com/community/tutorials/how-to-install-and-use-graphite-on-an-ubuntu-14-04-server
 #
 # Note: linux-image-extra-virtual is only required in the vagrant instance
