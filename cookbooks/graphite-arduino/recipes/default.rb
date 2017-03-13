@@ -1,5 +1,5 @@
 #
-# Cookbook Name:: fimafeng
+# Cookbook Name:: graphite-arduino
 # Recipe:: default
 #
 # Copyright 2015, YOUR_COMPANY_NAME
