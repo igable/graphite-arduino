@@ -75,7 +75,7 @@ Vagrant.configure(2) do |config|
   # SHELL
   config.vm.provision "chef_solo" do |chef|
     chef.version = "12.3.0"
-    chef.add_recipe "fimafeng"
+    chef.add_recipe "graphite-arduino"
   end
   #random comment
   
